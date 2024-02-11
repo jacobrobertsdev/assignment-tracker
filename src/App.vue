@@ -29,6 +29,9 @@ function handleDeleteAssignment(id) {
 
 <template>
 
+<AddAssignmentForm @addNewAssignment="handleAddAssignment"></AddAssignmentForm>
+<AssignmentList @deleteAssignment="handleDeleteAssignment" :assignments="assignmentsList"></AssignmentList>
+
 </template>
 
 <style scoped>
