@@ -64,7 +64,7 @@ function displayDueDate(dueDate) {
 
 
 .assignments-list{
-    margin-top: 6rem;
+    margin:2rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
