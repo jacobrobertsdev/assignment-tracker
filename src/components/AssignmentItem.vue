@@ -42,6 +42,7 @@ function deleteAssignment(id) {
 
     span {
         font-size: .8rem;
+
     }
 
     .course-name {
