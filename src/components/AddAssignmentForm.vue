@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits, onMounted } from 'vue'
+import { ref, defineEmits } from 'vue'
 
 const emit = defineEmits(['addNewAssignment'])
 
@@ -17,13 +17,7 @@ function toggleForm() {
     dueDate.value = ''
 }
 
-function formatDate(dateStr) {
-    const parts = dateStr.split('-')
-    const year = parts[0]
-    const month = parts[1]
-    const day = parts[2]
-    return `${month}/${day}/${year}`
-}
+
 
 function addAssignment() {
    
@@ -31,7 +25,7 @@ function addAssignment() {
        id: crypto.randomUUID().toString(),
        course: courseName.value,
        name: assignmentName.value,
-       due: formatDate(dueDate.value)}
+       due: dueDate.value}
 
     emit('addNewAssignment', newAssignment)
 

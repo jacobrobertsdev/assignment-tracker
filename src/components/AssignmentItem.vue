@@ -19,7 +19,7 @@ function deleteAssignment(id) {
 <div class="assignment">
     <h4>{{ name }}</h4>
     <span class="course-name">{{ course }}</span>
-    <span class="due-date">Due {{ due }}</span>
+    <span class="due-date">{{ due }}</span>
     <button class="delete" @click="deleteAssignment(id)">Delete</button>
 </div>
 </template>
