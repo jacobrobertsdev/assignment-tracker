@@ -4,14 +4,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background: #0a0f19;
+  --offset: #ffffff;
+  --accent: #ff5f50;
+  --neutral: #929292;
+  --text: rgb(0, 0, 0); */
+  --body: "Poppins", sans-serif;
+  /* --box-shadow: 0px 3px 6px -3px #a2a2a2b5; */
+}
+
 body {
   min-height: 100vh;
-  background-color: whitesmoke;
+  background-color: var(--background);
 }
 
 #app {
+  font-family: var(--body);
   width: 100%;
-  color: black;
+  color: white;
   margin-top: 1rem;
   display: flex;
   flex-direction: column;

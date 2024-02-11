@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineEmits } from 'vue'
+import { ref } from 'vue'
 
 const emit = defineEmits(['addNewAssignment'])
 
@@ -11,10 +11,11 @@ const today = new Date().toISOString().split('T')[0]
 
 
 function toggleForm() {
-    formHidden.value = !formHidden.value
     courseName.value=''
     assignmentName.value = ''
     dueDate.value = ''
+    formHidden.value = !formHidden.value
+
 }
 
 
@@ -36,7 +37,7 @@ function addAssignment() {
 
 <template>
     
-    <button v-if="formHidden" @click="toggleForm" class="add-assignment"> + Add Assignment</button>
+    <button v-if="formHidden" @click="toggleForm" class="add-assignment"> + Add</button>
 
     <section class="assignment-form">
         <form v-if="!formHidden" @submit.prevent="addAssignment">
@@ -56,8 +57,8 @@ function addAssignment() {
         </section>
             
         <section class="controls">
-            <button type="submit">Submit</button>
-            <button @click="toggleForm">Cancel</button>
+            <button>Submit</button>
+            <button @click="toggleForm" type="button">Cancel</button>
         </section>
             
         </form>
@@ -67,21 +68,70 @@ function addAssignment() {
 </template>
 
 <style scoped>
+
 form {
-    margin-bottom: 1rem;
-    box-shadow: 0px 3px 7px -2px rgb(110, 110, 110);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
+    flex-direction: column;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     border-radius: 12px;
+    background-color: var(--background);
+    z-index: 20;
 
 }
 
-.assignment-input, .due-date-input, .course-input, .controls {
+.controls{
+    margin-top: .5rem;
     display: flex;
+    align-self: center;
     gap: .5rem;
+}
+
+form button {
+    cursor: pointer;
+    padding: .25rem;
+
+}
+
+label{
+   
+
+    margin-left: .1rem;
+}
+
+input {
+    width: 15rem;
+    height: 2.1rem;
+    padding: .2rem;
+    border-radius: 5px;
+    border: 2px solid rgb(138, 138, 138);
+}
+
+.add-assignment {
+    color: whitesmoke;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+    background: transparent;
+    padding: .3rem;
+    border: 2px solid whitesmoke;
+    border-radius: 5px;
+
+}
+
+.assignment-input, .due-date-input, .course-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .3rem;
 }
 </style>

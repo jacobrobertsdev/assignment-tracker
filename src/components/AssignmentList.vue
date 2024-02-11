@@ -62,22 +62,30 @@ function displayDueDate(dueDate) {
 
 <style scoped>
 
-.placeholder {
-    padding: 3rem;
-    margin: 1.5rem;
-    text-align: center;
-    border: 3px dashed rgba(111, 111, 111, 0.491);
-    border-radius: 10px;
 
-}
 .assignments-list{
-    margin-top: 1rem;
+    margin-top: 6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     width:100%;
+}
+
+.placeholder {
+    opacity: .5;
+    max-width: 85%;
+    padding: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px dashed black;
+    border-radius: 10px;
+    z-index: -1;
+    height: 50vh;
+
 }
 
 @media (min-width: 1000px){
