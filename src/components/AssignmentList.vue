@@ -16,8 +16,7 @@ function handleDelete(id) {
 
 <section class="assignments-list">
     <div v-if="assignments.length === 0">
-        <h3>No assignments to show -</h3>
-        <p>Use the form to add your next assignment!</p>
+        <p>Use the form to add your first assignment!</p>
     </div>
 
     <AssignmentItem v-else v-for="assignment in assignments" :key="assignment.id" 
@@ -32,4 +31,28 @@ function handleDelete(id) {
 </template>
 
 <style scoped>
+
+div {
+    padding: 3rem;
+    margin: 1.5rem;
+    text-align: center;
+    border: 3px dashed rgba(111, 111, 111, 0.491);
+    border-radius: 10px;
+
+}
+.assignments-list{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width:100%;
+}
+
+@media (min-width: 1000px){
+    .assignments-list {
+        width: 60%;
+    }
+}
 </style>

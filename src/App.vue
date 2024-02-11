@@ -35,4 +35,5 @@ function handleDeleteAssignment(id) {
 </template>
 
 <style scoped>
+
 </style>

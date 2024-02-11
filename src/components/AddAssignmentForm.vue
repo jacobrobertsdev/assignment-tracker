@@ -7,16 +7,14 @@ const formHidden = ref(true)
 const courseName = ref('')
 const assignmentName = ref('')
 const dueDate = ref('')
-const minDate = ref('')
+const today = new Date().toISOString().split('T')[0]
 
-onMounted(() => {
-      // Set  minimum date to current date
-      const today = new Date().toISOString().split('T')[0]
-      minDate.value = today
-});
 
 function toggleForm() {
     formHidden.value = !formHidden.value
+    courseName.value=''
+    assignmentName.value = ''
+    dueDate.value = ''
 }
 
 function formatDate(dateStr) {
@@ -36,9 +34,6 @@ function addAssignment() {
        due: formatDate(dueDate.value)}
 
     emit('addNewAssignment', newAssignment)
-   
-    assignmentName.value = ''
-    dueDate.value = ''
 
     toggleForm()
 }
@@ -63,7 +58,7 @@ function addAssignment() {
             
         <section class="due-date-input">
             <label for="due-date">Due Date:</label>
-            <input type="date" v-model="dueDate" name="due-date" id="due-date" :min="minDate" required>
+            <input type="date" v-model="dueDate" name="due-date" id="due-date" :min="today" required>
         </section>
             
         <section class="controls">
@@ -78,4 +73,21 @@ function addAssignment() {
 </template>
 
 <style scoped>
+form {
+    margin-bottom: 1rem;
+    box-shadow: 0px 3px 7px -2px rgb(110, 110, 110);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 12px;
+
+}
+
+.assignment-input, .due-date-input, .course-input, .controls {
+    display: flex;
+    gap: .5rem;
+}
 </style>
