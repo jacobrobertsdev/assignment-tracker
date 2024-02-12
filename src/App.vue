@@ -2,33 +2,31 @@
 import ClearAssignments from './components/ClearAssignments.vue';
 import AddAssignmentForm from './components/AddAssignmentForm.vue'
 import AssignmentList from './components/AssignmentList.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 
 const assignmentsList = ref([])
 
+
 onMounted(() => {
     const savedAssignments = localStorage.getItem('assignments') || []
-    if (savedAssignments) assignmentsList.value = JSON.parse(savedAssignments)
+   assignmentsList.value = JSON.parse(savedAssignments)
 })
 
-function setLocalStorage(list) {
-    localStorage.setItem('assignments', JSON.stringify(list))
-}
+watch(assignmentsList, (updatedList) => {
+    localStorage.setItem('assignments', JSON.stringify(updatedList))
+})
 
 function handleAddAssignment(newAssignment) {
-    assignmentsList.value.push(newAssignment)
-    setLocalStorage(assignmentsList.value)
+    assignmentsList.value = [...assignmentsList.value, newAssignment]
 }
 
 function handleDeleteAssignment(id) {
     assignmentsList.value = assignmentsList.value.filter(assignment => assignment.id !== id)
-    setLocalStorage(assignmentsList.value)
 }
 
 function handleClearAssignments() {
     assignmentsList.value = []
-    setLocalStorage(assignmentsList.value)
 }
 
 </script>
