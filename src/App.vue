@@ -1,4 +1,5 @@
 <script setup>
+import ClearAssignments from './components/ClearAssignments.vue';
 import AddAssignmentForm from './components/AddAssignmentForm.vue'
 import AssignmentList from './components/AssignmentList.vue'
 import { ref, onMounted } from 'vue'
@@ -25,10 +26,15 @@ function handleDeleteAssignment(id) {
     setLocalStorage(assignmentsList.value)
 }
 
+function handleClearAssignments() {
+    assignmentsList.value = []
+    setLocalStorage(assignmentsList.value)
+}
+
 </script>
 
 <template>
-
+<ClearAssignments @clearAll="handleClearAssignments"></ClearAssignments>
 <AddAssignmentForm @addNewAssignment="handleAddAssignment"></AddAssignmentForm>
 <AssignmentList @deleteAssignment="handleDeleteAssignment" :assignments="assignmentsList"></AssignmentList>
 
