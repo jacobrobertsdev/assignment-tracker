@@ -4,12 +4,15 @@ import { defineEmits } from 'vue';
 const emit = defineEmits(['clearAll'])
 
 function handleClear() {
-    emit('clearAll')
+  const confirmed = window.confirm("Clear all of your assignments?");
+  if (confirmed) {
+    emit('clearAll');
+  }
 }
 </script>
 
 <template>
-    <button @click="handleClear">Clear All</button>
+    <button @click="handleClear">Clear</button>
 </template>
 
 <style scoped>

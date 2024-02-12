@@ -3,6 +3,7 @@ import ClearAssignments from './components/ClearAssignments.vue';
 import AddAssignmentForm from './components/AddAssignmentForm.vue'
 import AssignmentList from './components/AssignmentList.vue'
 import CountMessage from './components/CountMessage.vue'
+import CurrentDateDisplay from './components/CurrentDateDisplay.vue'
 import { ref, onMounted, watch, computed } from 'vue'
 
 
@@ -38,6 +39,7 @@ function handleClearAssignments() {
 
 <ClearAssignments @clearAll="handleClearAssignments"></ClearAssignments>
 <AddAssignmentForm @addNewAssignment="handleAddAssignment"></AddAssignmentForm>
+<CurrentDateDisplay></CurrentDateDisplay>
 <CountMessage :count="count"></CountMessage>
 <AssignmentList @deleteAssignment="handleDeleteAssignment" :assignments="assignmentsList"></AssignmentList>
 
