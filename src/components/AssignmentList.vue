@@ -46,7 +46,7 @@ function displayDueDate(dueDate) {
 
 <section class="assignments-list">
     <div class="placeholder" v-if="assignments.length === 0">
-        <p>Use the form to add your first assignment!</p>
+        <p>No assignments!</p>
     </div>
 
     <AssignmentItem v-else v-for="assignment in assignments" :key="assignment.id" 
