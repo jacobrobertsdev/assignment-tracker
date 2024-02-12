@@ -27,12 +27,12 @@ function deleteAssignment(id) {
 <style scoped>
   .assignment{
         background-color:#122034;
-        /* box-shadow: 0px 3px 7px -2px rgb(110, 110, 110); */
         position: relative;
         padding: 2rem 1rem;
         width: 90%;
         border-radius: 5px;
         word-break: break-all;
+        font-size: 1rem;
 
     }
 

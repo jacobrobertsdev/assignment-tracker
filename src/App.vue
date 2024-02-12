@@ -2,12 +2,15 @@
 import ClearAssignments from './components/ClearAssignments.vue';
 import AddAssignmentForm from './components/AddAssignmentForm.vue'
 import AssignmentList from './components/AssignmentList.vue'
-import { ref, onMounted, watch } from 'vue'
+import CountMessage from './components/CountMessage.vue'
+import { ref, onMounted, watch, computed } from 'vue'
 
 
 const assignmentsList = ref([])
 
-
+const count = computed(() => {
+    return assignmentsList.value.length
+})
 onMounted(() => {
 assignmentsList.value = JSON.parse(localStorage.getItem('assignments')) || []
 });
@@ -31,8 +34,11 @@ function handleClearAssignments() {
 </script>
 
 <template>
+
+
 <ClearAssignments @clearAll="handleClearAssignments"></ClearAssignments>
 <AddAssignmentForm @addNewAssignment="handleAddAssignment"></AddAssignmentForm>
+<CountMessage :count="count"></CountMessage>
 <AssignmentList @deleteAssignment="handleDeleteAssignment" :assignments="assignmentsList"></AssignmentList>
 
 </template>

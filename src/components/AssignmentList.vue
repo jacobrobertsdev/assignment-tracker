@@ -34,6 +34,7 @@ function displayDueDate(dueDate) {
         return `Due: ${formatDate(dueDate)}`;
     }
 }
+
 </script>
 
 <template>
@@ -58,7 +59,7 @@ function displayDueDate(dueDate) {
 
 
 .assignments-list{
-    margin:3rem auto;
+    margin:0.5rem auto 2rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
