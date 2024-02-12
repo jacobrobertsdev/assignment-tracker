@@ -21,20 +21,14 @@ function formatDate(dateStr) {
 
 function displayDueDate(dueDate) {
     const currentDate = new Date();
-    const currentDateString = currentDate.toISOString().split('T')[0]; // Extract date string without time component
+    currentDate.setUTCHours(0, 0, 0, 0);
 
     const due = new Date(dueDate);
-    const dueDateString = due.toISOString().split('T')[0]; 
+    due.setUTCHours(0, 0, 0, 0);
 
-    const tomorrow = new Date(currentDate);
-    tomorrow.setDate(currentDate.getDate() + 1);
-    const tomorrowDateString = tomorrow.toISOString().split('T')[0];
-
-    if (dueDateString === currentDateString) {
+    if (due.getTime() === currentDate.getTime()) {
         return 'Due today!';
-    } else if (dueDateString === tomorrowDateString) {
-        return 'Due tomorrow';
-    } else if (due < currentDate) {
+    } else if (due.getTime() < currentDate.getTime()) {
         return 'Past due';
     } else {
         return `Due: ${formatDate(dueDate)}`;
@@ -64,7 +58,7 @@ function displayDueDate(dueDate) {
 
 
 .assignments-list{
-    margin:2rem auto;
+    margin:3rem auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,17 +68,15 @@ function displayDueDate(dueDate) {
 }
 
 .placeholder {
-    opacity: .5;
-    max-width: 85%;
-    padding: 3rem;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 2px dashed black;
+    opacity: .5;
+    padding: 6rem 4rem;
+    max-width: 90%;
+    margin: 6rem auto;
+    border: 2px dashed white;
     border-radius: 10px;
     z-index: -1;
-    height: 50vh;
+
 
 }
 

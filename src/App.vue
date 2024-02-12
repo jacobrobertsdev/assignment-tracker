@@ -17,7 +17,7 @@ watch(assignmentsList, (updatedList) => {
 })
 
 function handleAddAssignment(newAssignment) {
-    assignmentsList.value = [...assignmentsList.value, newAssignment]
+    assignmentsList.value = [ newAssignment,...assignmentsList.value]
 }
 
 function handleDeleteAssignment(id) {

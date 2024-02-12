@@ -26,7 +26,7 @@ function deleteAssignment(id) {
 
 <style scoped>
   .assignment{
-        background-color:#2f3b51;
+        background-color:#122034;
         /* box-shadow: 0px 3px 7px -2px rgb(110, 110, 110); */
         position: relative;
         padding: 2rem 1rem;
@@ -50,7 +50,7 @@ function deleteAssignment(id) {
         top:0;
         left:0;
         padding: .2rem .3rem;
-        background-color: hsl(220, 25%, 50%);
+        background-color: #4a5c75;
         color: white;
         border-bottom-right-radius: 5px;
         border-top-left-radius: 5px;
@@ -61,7 +61,7 @@ function deleteAssignment(id) {
         top:0;
         right:0;
         padding: .2rem .3rem;
-        background-color: hsl(220, 25%, 50%);
+        background-color: #4a586c;
         color: white;
         border-bottom-left-radius: 5px;
         border-top-right-radius: 5px;
@@ -72,12 +72,12 @@ function deleteAssignment(id) {
         position: absolute;
         bottom:0;
         right:0;
-        padding: .2rem .3rem;
-        background-color: rgb(186, 0, 0);
+        padding: .4rem;
+        background-color: transparent;
         border: none;
         border-top-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        color: white;
+        color: crimson;
         cursor: pointer;
     }
 </style>
