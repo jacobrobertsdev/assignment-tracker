@@ -32,24 +32,17 @@ function deleteAssignment(id) {
         width: 90%;
         border-radius: 5px;
         word-break: break-all;
-        font-size: 1rem;
-
-    }
-
-   p, span{
-        font-family: var(--body);
     }
 
     span {
         font-size: .8rem;
-
     }
 
     .course-name {
         position: absolute;
         top:0;
         left:0;
-        padding: .2rem .3rem;
+        padding: .2rem .4rem;
         background-color: #4a5c75;
         color: white;
         border-bottom-right-radius: 5px;
@@ -60,7 +53,7 @@ function deleteAssignment(id) {
         position: absolute;
         top:0;
         right:0;
-        padding: .2rem .3rem;
+        padding: .2rem .4rem;
         background-color: #4a586c;
         color: white;
         border-bottom-left-radius: 5px;
@@ -68,7 +61,7 @@ function deleteAssignment(id) {
     }
 
     .delete {
-        font-family: var(--body);
+        font-size: .9rem;
         position: absolute;
         bottom:0;
         right:0;
@@ -77,7 +70,10 @@ function deleteAssignment(id) {
         border: none;
         border-top-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        color: crimson;
-        cursor: pointer;
+        color: red;
+    }
+
+    .delete:hover{
+        background-color: #48566a;
     }
 </style>

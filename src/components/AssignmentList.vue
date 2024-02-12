@@ -71,9 +71,9 @@ function displayDueDate(dueDate) {
 .placeholder {
     text-align: center;
     opacity: .5;
-    padding: 6rem 4rem;
+    padding: 6rem 5rem;
     max-width: 90%;
-    margin: 6rem auto;
+    margin: 5rem auto;
     border: 2px dashed white;
     border-radius: 10px;
     z-index: -1;

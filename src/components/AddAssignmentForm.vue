@@ -97,8 +97,16 @@ form {
 
 form button {
     cursor: pointer;
-    padding: .25rem;
+    background-color: var(--background);
+    color: whitesmoke;
+    padding:.4rem;
+    border: 1px solid whitesmoke;
+    border-radius:5px
+}
 
+button:hover{
+   background-color: hsl(220, 20%, 30%);
+   color: white;
 }
 
 label{
@@ -117,10 +125,14 @@ input {
 
 .add-assignment {
     position: fixed;
-    top: 5%;
+    top:3%;
     right: 5%;
     z-index: 10;
-
+    background-color: var(--background);
+    color: whitesmoke;
+    padding:.4rem;
+    border: 1px solid whitesmoke;
+    border-radius:5px
 }
 
 .assignment-input, .due-date-input, .course-input {

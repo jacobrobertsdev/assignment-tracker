@@ -1,8 +1,4 @@
-<template>
-    <div>
-      <h3>{{ formattedDateTime }}</h3>
-    </div>
-  </template>
+
   
   <script setup>
   import { ref, onMounted } from 'vue';
@@ -13,19 +9,29 @@
     const now = new Date();
   
     const options = { 
+      hour: 'numeric', 
+      minute: '2-digit',
       month: 'numeric', 
       day: 'numeric', 
       year: 'numeric', 
-      hour: 'numeric', 
-      minute: '2-digit' 
+      
     };
   
-    formattedDateTime.value = now.toLocaleDateString(undefined, options)
+    formattedDateTime.value = now.toLocaleDateString(undefined, options).replace(',',' - ')
   });
   </script>
-  
+  <template>
+   
+      <h3>{{ formattedDateTime }}</h3>
+
+  </template>
   <style scoped>
   h3 {
-    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 10px;
+    background-color: #122034;
+    padding: 1rem;
+    margin:1rem auto;
+    font-size: .9rem;
   }
   </style>
