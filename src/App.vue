@@ -9,9 +9,8 @@ const assignmentsList = ref([])
 
 
 onMounted(() => {
-    const savedAssignments = localStorage.getItem('assignments') || []
-   assignmentsList.value = JSON.parse(savedAssignments)
-})
+assignmentsList.value = JSON.parse(localStorage.getItem('assignments')) || []
+});
 
 watch(assignmentsList, (updatedList) => {
     localStorage.setItem('assignments', JSON.stringify(updatedList))
