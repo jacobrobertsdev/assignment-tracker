@@ -31,8 +31,8 @@ function formatDate(dateStr) {
     <div class="placeholder" v-if="props.assignments.length === 0">
         <p>No assignments!</p>
     </div>
-
-    <AssignmentItem v-else v-for="assignment in props.assignments" :key="assignment.id" 
+    <ul v-else>
+    <AssignmentItem  v-for="assignment in props.assignments" :key="assignment.id" 
     :title="assignment.title" 
     :course="assignment.course"
     :due="formatDate(assignment.due)" 
@@ -41,20 +41,25 @@ function formatDate(dateStr) {
     @deleteAssignment="handleDelete"
     @editAssignment="handleEdit">
     </AssignmentItem>
-
+    </ul>
 </section>
 
 </template>
 
 <style scoped>
-.assignments-list{
-    margin:0.5rem auto 2rem auto;
+
+ul {
+    list-style-type: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
     width:100%;
+}
+.assignments-list{
+    margin:0.5rem auto 2rem auto;
+    width: 100%;
 }
 
 .placeholder {

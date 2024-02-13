@@ -44,7 +44,7 @@ function saveEdit() {
 </script>
 
 <template>
-    <div class="assignment">
+    <li class="assignment">
 
         <textarea rows="1"  name="assignment title" ref="inputRef" :readonly="readOnly" :value="editedTitle" :onmousedown="readOnly ? preventFocus : null " @change="handleEditTitle($event.target.value)"></textarea>
 
@@ -55,7 +55,7 @@ function saveEdit() {
         <button  v-if="readOnly" class="edit" @click="toggleEdit">Edit</button>
         <button  v-else class="save" @click="saveEdit">Save</button>
 
-    </div>
+    </li>
 </template>
 
 <style scoped>
