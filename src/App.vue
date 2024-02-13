@@ -45,14 +45,10 @@ function handleEditAssignment(updatedAssignment) {
 
 <template>
 
-<ClearAssignments @clearAll="handleClearAssignments"></ClearAssignments>
-
+<ClearAssignments @clearAll="handleClearAssignments" :assignments="assignmentsList"></ClearAssignments>
 <AddAssignmentForm @addNewAssignment="handleAddAssignment"></AddAssignmentForm>
-
 <CurrentDateDisplay></CurrentDateDisplay>
-
 <CountMessage :count="count"></CountMessage>
-
 <AssignmentList @deleteAssignment="handleDeleteAssignment"
 @editAssignment="handleEditAssignment" :assignments="assignmentsList">
 </AssignmentList>

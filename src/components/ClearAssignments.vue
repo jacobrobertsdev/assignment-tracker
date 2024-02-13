@@ -2,27 +2,44 @@
 import { defineEmits } from 'vue';
 import Swal from 'sweetalert2'
 
+const props = defineProps({
+  assignments: Array
+})
+
 const emit = defineEmits(['clearAll'])
 
 function handleClear() {
-  // const confirmed = window.confirm("Clear all of your assignments?")
-  // if (confirmed) {
-  //   emit('clearAll')
-  // }
 
-  Swal.fire({
+if (props.assignments.length){Swal.fire({
   title: "Clear all assignments?",
   text: "This will permanently delete all of your current assignments",
-  icon: "warning",
+  icon: "question",
   showCancelButton: true,
   confirmButtonColor: "#1c7ed6",
   cancelButtonColor: "#d33",
-  confirmButtonText: "Confirm"
-}).then((result) => {
+  confirmButtonText: "Confirm",
+  }).then((result) => {
+
   if (result.isConfirmed) {
-  emit('clearAll')
+    emit('clearAll')
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your assignments have been deleted.",
+      icon: "success",
+      confirmButtonColor: "#1c7ed6",
+    })
   }
-});
+})
+
+} else {
+  Swal.fire({
+    text: "No assignments to clear!",
+    icon: "warning",
+    confirmButtonColor: "#1c7ed6",
+  })
+
+}
+
 }
 </script>
 

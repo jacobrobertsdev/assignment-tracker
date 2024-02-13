@@ -31,12 +31,11 @@ function addAssignment() {
 </script>
 
 <template>
-    
     <button v-if="formHidden" @click="toggleForm" class="add-assignment">+Add</button>
 
-    <section class="assignment-form">
+    <section v-if="!formHidden" class="assignment-form">
 
-        <form v-if="!formHidden" id="new-assignment" name="New Assignment Form" @submit.prevent="addAssignment">
+        <form  id="new-assignment" name="New Assignment Form" @submit.prevent="addAssignment">
 
         <section class="course-input">
 
@@ -64,7 +63,6 @@ function addAssignment() {
 
         </form>
     </section>
-   
 </template>
 
 <style scoped>
