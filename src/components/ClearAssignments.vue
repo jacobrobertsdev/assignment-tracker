@@ -4,9 +4,9 @@ import { defineEmits } from 'vue';
 const emit = defineEmits(['clearAll'])
 
 function handleClear() {
-  const confirmed = window.confirm("Clear all of your assignments?");
+  const confirmed = window.confirm("Clear all of your assignments?")
   if (confirmed) {
-    emit('clearAll');
+    emit('clearAll')
   }
 }
 </script>
@@ -17,14 +17,15 @@ function handleClear() {
 
 <style scoped>
 button {
+    
     position: fixed;
-    top:3%;
+    top:-5px;
     left: 5%;
     z-index: 10;
-    background-color: var(--background);
-    color: whitesmoke;
-    padding:.4rem;
-    border: 1px solid whitesmoke;
+    color: white;
+    padding:.5rem .6rem .4rem .6rem;
+    border: none;
+    background-color: hsl(220, 75%, 45%);
     border-radius:5px
 }
 

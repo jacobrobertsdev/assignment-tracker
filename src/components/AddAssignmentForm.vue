@@ -37,7 +37,7 @@ function addAssignment() {
 
 <template>
     
-    <button v-if="formHidden" @click="toggleForm" class="add-assignment">+ Add</button>
+    <button v-if="formHidden" @click="toggleForm" class="add-assignment">+Add</button>
 
     <section class="assignment-form">
         <form v-if="!formHidden" id="new-assignment" name="New Assignment Form" @submit.prevent="addAssignment">
@@ -98,15 +98,14 @@ form {
 form button {
     cursor: pointer;
     background-color: var(--background);
-    color: whitesmoke;
-    padding:.4rem;
-    border: 1px solid whitesmoke;
+    color: white;
+    padding:.4rem .5rem;
+    border: 1px solid white;
     border-radius:5px
 }
 
 button:hover{
    background-color: hsl(220, 20%, 30%);
-   color: white;
 }
 
 label{
@@ -124,14 +123,16 @@ input {
 }
 
 .add-assignment {
+    display: inline-flex;
+    align-items: center;
     position: fixed;
-    top:3%;
+    top:-5px;
     right: 5%;
     z-index: 10;
-    background-color: var(--background);
-    color: whitesmoke;
-    padding:.4rem;
-    border: 1px solid whitesmoke;
+    color: white;
+    padding:.5rem .6rem .4rem .6rem;
+    border: none;
+    background-color: hsl(220, 75%, 45%);
     border-radius:5px
 }
 

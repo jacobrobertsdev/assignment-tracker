@@ -12,6 +12,7 @@ const assignmentsList = ref([])
 const count = computed(() => {
     return assignmentsList.value.length
 })
+
 onMounted(() => {
 assignmentsList.value = JSON.parse(localStorage.getItem('assignments')) || []
 });
@@ -20,6 +21,8 @@ watch(assignmentsList, (updatedList) => {
     localStorage.setItem('assignments', JSON.stringify(updatedList))
 }, {deep:true})
 
+
+///Handler functions///
 function handleAddAssignment(newAssignment) {
     assignmentsList.value = [ newAssignment,...assignmentsList.value]
 }
@@ -33,7 +36,7 @@ function handleClearAssignments() {
 }
 
 function handleEditAssignment(updatedAssignment) {
-    const index = assignmentsList.value.findIndex(item => item.id == updatedAssignment.id);
+    const index = assignmentsList.value.findIndex(item => item.id == updatedAssignment.id)
     if (index !== -1) {
         assignmentsList.value[index].title = updatedAssignment.newTitle;
     }
@@ -42,13 +45,17 @@ function handleEditAssignment(updatedAssignment) {
 
 <template>
 
-
 <ClearAssignments @clearAll="handleClearAssignments"></ClearAssignments>
+
 <AddAssignmentForm @addNewAssignment="handleAddAssignment"></AddAssignmentForm>
+
 <CurrentDateDisplay></CurrentDateDisplay>
+
 <CountMessage :count="count"></CountMessage>
+
 <AssignmentList @deleteAssignment="handleDeleteAssignment"
-@editAssignment="handleEditAssignment" :assignments="assignmentsList"></AssignmentList>
+@editAssignment="handleEditAssignment" :assignments="assignmentsList">
+</AssignmentList>
 
 </template>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { ref} from 'vue'
+import { ref, defineEmits} from 'vue'
 
 const props = defineProps({
     course: String,
@@ -8,9 +8,11 @@ const props = defineProps({
     id: String
 });
 
+const emit = defineEmits(['deleteAssignment', 'editAssignment'])
+
 const readOnly = ref(true)
 const inputRef = ref(null)
-const editedTitle = ref(props.title);
+const editedTitle = ref(props.title)
 
 
 const toggleEdit = () => {
@@ -25,7 +27,7 @@ const preventFocus = (event) => {
   event.preventDefault();
 };
 
-const emit = defineEmits(['deleteAssignment', 'editAssignment'])
+
 
 function deleteAssignment(id) {
     emit('deleteAssignment', id)
@@ -37,6 +39,7 @@ function handleEditTitle(value) {
 
 function saveEdit(id) {
     toggleEdit()
+
     emit('editAssignment', { id, newTitle: editedTitle.value })
     
 }
@@ -44,14 +47,15 @@ function saveEdit(id) {
 </script>
 
 <template>
-<div class="assignment">
-    <input id="assignment-title" name="assignment title" ref="inputRef" :readonly="readOnly" :value="editedTitle" :onmousedown="readOnly ? preventFocus : null " @change="handleEditTitle($event.target.value)"></input>
-    <span class="course-name">{{ course }}</span>
-    <span class="due-date">{{ due }}</span>
-    <button class="delete" @click="deleteAssignment(id)">Delete</button>
-    <button  v-if="readOnly" class="edit" @click="toggleEdit">Edit</button>
-    <button  v-else class="save" @click="saveEdit(id)">Save</button>
-</div>
+    <div class="assignment">
+        <textarea rows="2"  name="assignment title" ref="inputRef" :readonly="readOnly" :value="editedTitle" :onmousedown="readOnly ? preventFocus : null " @change="handleEditTitle($event.target.value)"></textarea>
+
+        <span class="course-name">{{ course }}</span>
+        <span class="due-date">Due: {{ due }}</span>
+        <button class="delete" @click="deleteAssignment(id)">Delete</button>
+        <button  v-if="readOnly" class="edit" @click="toggleEdit">Edit</button>
+        <button  v-else class="save" @click="saveEdit(id)">Save</button>
+    </div>
 </template>
 
 <style scoped>
@@ -64,11 +68,28 @@ function saveEdit(id) {
         word-break: break-all;
     }
 
-    input {
+    textarea {
+        width: 100%;
         background-color: transparent;
         color: whitesmoke;
-        font-size: 1rem;
+        font-size: .9rem;
         border: none;
+        resize: none;
+    }
+
+    textarea::-webkit-scrollbar {
+        width: .6rem;
+    }
+
+    textarea::-webkit-scrollbar-track {
+        background-color: var(--background);
+        border-radius: 3px;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background-color: #8390a3;
+        border-radius: 3px;
+
     }
     span {
         font-size: .8rem;
@@ -121,7 +142,7 @@ function saveEdit(id) {
         color: white;
     }
 
-    .delete:hover{
+    .assignment button:hover{
         background-color: #48566a;
     }
 </style>

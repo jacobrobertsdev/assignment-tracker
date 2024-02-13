@@ -30,8 +30,8 @@
     font-weight: 400;
     border-radius: 10px;
     background-color: #122034;
-    padding: 1rem;
-    margin:1rem auto;
+    padding: .5rem 1rem;
+    margin:0 auto;
     font-size: .9rem;
   }
   </style>
