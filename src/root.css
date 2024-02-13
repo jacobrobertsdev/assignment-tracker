@@ -19,7 +19,6 @@ body {
 #app {
   width: 100%;
   color: var(--text);
-  margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -26,7 +26,7 @@
   <style scoped>
 
   h3 {
-    margin: 0 auto;
+    margin: 1rem auto;
     position: relative;
     font-weight: 400;
     border-radius: 10px;
@@ -40,7 +40,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -51%);
+    transform: translate(-50%, -50%);
     width: 102%;
     height: 112%;
     background: linear-gradient(to top, #0097c1, #1c7ed6);
