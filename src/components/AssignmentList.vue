@@ -1,15 +1,19 @@
 <script setup>
 import AssignmentItem from './AssignmentItem.vue';
 
-defineProps({
+const props = defineProps({
     assignments: Array
 })
 
-const emit = defineEmits(['deleteAssignment']);
+const emit = defineEmits(['deleteAssignment', 'editAssignment']);
 
 function handleDelete(id) {
     emit('deleteAssignment', id);
 }
+function handleEdit(updatedAssignment) {
+    emit('editAssignment', updatedAssignment);
+}
+
 
 function formatDate(dateStr) {
     const parts = dateStr.split('-')
@@ -44,13 +48,14 @@ function displayDueDate(dueDate) {
         <p>No assignments!</p>
     </div>
 
-    <AssignmentItem v-else v-for="assignment in assignments" :key="assignment.id" 
-    :name="assignment.name" 
+    <AssignmentItem v-else v-for="assignment in props.assignments" :key="assignment.id" 
+    :title="assignment.title" 
     :course="assignment.course"
     :due="displayDueDate(assignment.due)" 
     :assignments="assignments"
     :id="assignment.id"
-    @deleteAssignment="handleDelete">
+    @deleteAssignment="handleDelete"
+    @editAssignment="handleEdit">
     </AssignmentItem>
     </section>
 </template>

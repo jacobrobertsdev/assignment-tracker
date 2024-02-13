@@ -1,7 +1,4 @@
 <script setup>
-import { computed } from 'vue'
-
-
 defineProps({
    count: Number 
 })

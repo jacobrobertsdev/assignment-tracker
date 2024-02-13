@@ -18,7 +18,7 @@ assignmentsList.value = JSON.parse(localStorage.getItem('assignments')) || []
 
 watch(assignmentsList, (updatedList) => {
     localStorage.setItem('assignments', JSON.stringify(updatedList))
-})
+}, {deep:true})
 
 function handleAddAssignment(newAssignment) {
     assignmentsList.value = [ newAssignment,...assignmentsList.value]
@@ -32,6 +32,12 @@ function handleClearAssignments() {
     assignmentsList.value = []
 }
 
+function handleEditAssignment(updatedAssignment) {
+    const index = assignmentsList.value.findIndex(item => item.id == updatedAssignment.id);
+    if (index !== -1) {
+        assignmentsList.value[index].title = updatedAssignment.newTitle;
+    }
+}
 </script>
 
 <template>
@@ -41,7 +47,8 @@ function handleClearAssignments() {
 <AddAssignmentForm @addNewAssignment="handleAddAssignment"></AddAssignmentForm>
 <CurrentDateDisplay></CurrentDateDisplay>
 <CountMessage :count="count"></CountMessage>
-<AssignmentList @deleteAssignment="handleDeleteAssignment" :assignments="assignmentsList"></AssignmentList>
+<AssignmentList @deleteAssignment="handleDeleteAssignment"
+@editAssignment="handleEditAssignment" :assignments="assignmentsList"></AssignmentList>
 
 </template>
 

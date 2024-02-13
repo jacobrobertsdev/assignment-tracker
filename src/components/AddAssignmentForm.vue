@@ -25,7 +25,7 @@ function addAssignment() {
    const newAssignment = {
        id: crypto.randomUUID().toString(),
        course: courseName.value,
-       name: assignmentName.value,
+       title: assignmentName.value,
        due: dueDate.value}
 
     emit('addNewAssignment', newAssignment)
@@ -40,7 +40,7 @@ function addAssignment() {
     <button v-if="formHidden" @click="toggleForm" class="add-assignment">+ Add</button>
 
     <section class="assignment-form">
-        <form v-if="!formHidden" @submit.prevent="addAssignment">
+        <form v-if="!formHidden" id="new-assignment" name="New Assignment Form" @submit.prevent="addAssignment">
         <section class="course-input">
             <label for="course">Course:</label>
             <input type="text" v-model="courseName" name="course" id="course" placeholder="Course name..." maxlength="20" required>
