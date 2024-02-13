@@ -1,17 +1,17 @@
 <script setup>
-import AssignmentItem from './AssignmentItem.vue';
+import AssignmentItem from './AssignmentItem.vue'
 
 const props = defineProps({
     assignments: Array
 })
 
-const emit = defineEmits(['deleteAssignment', 'editAssignment']);
+const emit = defineEmits(['deleteAssignment', 'editAssignment'])
 
 function handleDelete(id) {
-    emit('deleteAssignment', id);
+    emit('deleteAssignment', id)
 }
 function handleEdit(updatedAssignment) {
-    emit('editAssignment', updatedAssignment);
+    emit('editAssignment', updatedAssignment)
 }
 
 
@@ -23,21 +23,6 @@ function formatDate(dateStr) {
     return `${month}/${day}/${year}`
 }
 
-function displayDueDate(dueDate) {
-    const currentDate = new Date();
-    currentDate.setUTCHours(0, 0, 0, 0);
-
-    const due = new Date(dueDate);
-    due.setUTCHours(0, 0, 0, 0);
-
-    if (due.getTime() === currentDate.getTime()) {
-        return 'Due today!';
-    } else if (due.getTime() < currentDate.getTime()) {
-        return 'Past due';
-    } else {
-        return `Due: ${formatDate(dueDate)}`;
-    }
-}
 
 </script>
 
@@ -51,7 +36,7 @@ function displayDueDate(dueDate) {
     <AssignmentItem v-else v-for="assignment in props.assignments" :key="assignment.id" 
     :title="assignment.title" 
     :course="assignment.course"
-    :due="displayDueDate(assignment.due)" 
+    :due="formatDate(assignment.due)" 
     :assignments="assignments"
     :id="assignment.id"
     @deleteAssignment="handleDelete"
