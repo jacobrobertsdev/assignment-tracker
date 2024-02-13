@@ -30,18 +30,6 @@ function addAssignment() {
     toggleForm()
 }
 
-function validateForm() {
-    if (!courseName.value || !assignmentName.value || !dueDate.value) {
-        Swal.fire({
-            title: "Form incomplete!",
-            text: "Fill out all fields to add assignment.",
-            icon: "warning",
-            confirmButtonColor: "#1c7ed6",
-        })
-    } else {
-        addAssignment()
-    }
-}
 
 </script>
 
@@ -50,7 +38,7 @@ function validateForm() {
 
     <section v-if="!formHidden" class="assignment-form">
 
-        <form  id="new-assignment" name="New Assignment Form" @submit.prevent>
+        <form  id="new-assignment" name="New Assignment Form" @submit.prevent="addAssignment">
 
         <section class="course-input">
 
@@ -72,7 +60,7 @@ function validateForm() {
             
         <section class="controls">
 
-            <button @click="validateForm" type="button">Submit</button>
+            <button type="submit">Submit</button>
             <button @click="toggleForm" type="button">Cancel</button>
         </section>
 
