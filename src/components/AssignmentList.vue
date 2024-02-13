@@ -22,14 +22,13 @@ function formatDate(dateStr) {
     const day = parts[2]
     return `${month}/${day}/${year}`
 }
-
-
 </script>
 
 <template>
 
 <section class="assignments-list">
-    <div class="placeholder" v-if="assignments.length === 0">
+
+    <div class="placeholder" v-if="props.assignments.length === 0">
         <p>No assignments!</p>
     </div>
 
@@ -37,17 +36,17 @@ function formatDate(dateStr) {
     :title="assignment.title" 
     :course="assignment.course"
     :due="formatDate(assignment.due)" 
-    :assignments="assignments"
+    :assignments="props.assignments"
     :id="assignment.id"
     @deleteAssignment="handleDelete"
     @editAssignment="handleEdit">
     </AssignmentItem>
-    </section>
+
+</section>
+
 </template>
 
 <style scoped>
-
-
 .assignments-list{
     margin:0.5rem auto 2rem auto;
     display: flex;
@@ -63,17 +62,19 @@ function formatDate(dateStr) {
     opacity: .5;
     padding: 6rem 5rem;
     max-width: 90%;
-    margin: 5rem auto;
+    margin: 6rem auto;
     border: 2px dashed white;
     border-radius: 10px;
     z-index: -1;
-
-
 }
 
 @media (min-width: 1000px){
     .assignments-list {
         width: 60%;
+    }
+
+    .placeholder {
+    padding: 7rem 10rem;
     }
 }
 </style>

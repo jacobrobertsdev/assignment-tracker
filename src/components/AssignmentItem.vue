@@ -19,28 +19,25 @@ const toggleEdit = () => {
     readOnly.value = !readOnly.value
 
     if (!readOnly.value) {
-        inputRef.value.focus();
-    }
+        inputRef.value.focus()}
 }
 
 const preventFocus = (event) => {
-  event.preventDefault();
-};
+  event.preventDefault()
+}
 
 
-
-function deleteAssignment(id) {
-    emit('deleteAssignment', id)
+function deleteAssignment() {
+    emit('deleteAssignment', props.id)
 }
 
 function handleEditTitle(value) {
     editedTitle.value = value
 }
 
-function saveEdit(id) {
+function saveEdit() {
     toggleEdit()
-
-    emit('editAssignment', { id, newTitle: editedTitle.value })
+    emit('editAssignment', { id:props.id, newTitle: editedTitle.value })
     
 }
 
@@ -48,13 +45,16 @@ function saveEdit(id) {
 
 <template>
     <div class="assignment">
+
         <textarea rows="1"  name="assignment title" ref="inputRef" :readonly="readOnly" :value="editedTitle" :onmousedown="readOnly ? preventFocus : null " @change="handleEditTitle($event.target.value)"></textarea>
 
-        <span class="course-name">{{ course }}</span>
-        <span class="due-date">Due: {{ due }}</span>
-        <button class="delete" @click="deleteAssignment(id)">Delete</button>
+        <span class="course-name">{{ props.course }}</span>
+        <span class="due-date">Due: {{ props.due }}</span>
+
+        <button class="delete" @click="deleteAssignment">Delete</button>
         <button  v-if="readOnly" class="edit" @click="toggleEdit">Edit</button>
-        <button  v-else class="save" @click="saveEdit(id)">Save</button>
+        <button  v-else class="save" @click="saveEdit">Save</button>
+
     </div>
 </template>
 
@@ -62,7 +62,7 @@ function saveEdit(id) {
   .assignment{
         background-color:#122034;
         position: relative;
-        padding: 2rem 1rem;
+        padding: 2.8rem 1rem;
         width: 90%;
         border-radius: 5px;
         word-break: break-all;
@@ -71,7 +71,7 @@ function saveEdit(id) {
     textarea {
         width: 100%;
         background-color: transparent;
-        color: whitesmoke;
+        color: var(--text);
         font-size: .9rem;
         border: none;
         resize: none;
@@ -101,7 +101,6 @@ function saveEdit(id) {
         left:0;
         padding: .2rem .4rem;
         background-color: #495057;
-        color: white;
         border-bottom-right-radius: 5px;
         border-top-left-radius: 5px;
 
@@ -112,7 +111,6 @@ function saveEdit(id) {
         right:0;
         padding: .2rem .4rem;
         background-color: #495057;
-        color: white;
         border-bottom-left-radius: 5px;
         border-top-right-radius: 5px;
     }
@@ -139,10 +137,10 @@ function saveEdit(id) {
         border: none;
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
-        color: white;
+       
     }
 
-    .assignment button:hover{
-        background-color: hsl(220, 20%, 30%);
+    button:hover {
+    background-color: hsl(220, 20%, 30%);
     }
 </style>

@@ -8,8 +8,8 @@
 
 :root {
   --background: #0a0f19;
+  --text: white;
   --body: "Poppins", sans-serif;
-  /* --box-shadow: 0px 3px 6px -3px #a2a2a2b5; */
 }
 
 body {
@@ -19,8 +19,8 @@ body {
 
 #app {
   width: 100%;
-  color: white;
-  margin-top: 1rem;
+  color: var(--text);
+  margin-top: 1.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,4 +29,9 @@ body {
 
 button {
   cursor: pointer;
+  color: var(--text);
+}
+
+button:hover {
+  background-color: hsl(220, 20%, 30%);
 }

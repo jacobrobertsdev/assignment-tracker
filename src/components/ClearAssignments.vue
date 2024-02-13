@@ -31,21 +31,16 @@ function handleClear() {
 </template>
 
 <style scoped>
+
 button {
-    
     position: fixed;
     top:3%;
     left: 5%;
     z-index: 10;
-    color: white;
     padding:.4rem;
     border: none;
     background-color: #1c7ed6;
-    border-radius:5px
+    border-radius:5px;
 }
 
-button:hover{
-   background-color: hsl(220, 20%, 30%);
-   color: white;
-}
 </style>
