@@ -15,7 +15,7 @@ function handleClear() {
   text: "This will permanently delete all of your current assignments",
   icon: "warning",
   showCancelButton: true,
-  confirmButtonColor: "#1d56c9",
+  confirmButtonColor: "#1c7ed6",
   cancelButtonColor: "#d33",
   confirmButtonText: "Confirm"
 }).then((result) => {
@@ -34,13 +34,13 @@ function handleClear() {
 button {
     
     position: fixed;
-    top:-5px;
+    top:3%;
     left: 5%;
     z-index: 10;
     color: white;
-    padding:.5rem .6rem .4rem .6rem;
+    padding:.4rem;
     border: none;
-    background-color: #1d56c9;
+    background-color: #1c7ed6;
     border-radius:5px
 }
 

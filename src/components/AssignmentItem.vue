@@ -48,7 +48,7 @@ function saveEdit(id) {
 
 <template>
     <div class="assignment">
-        <textarea rows="2"  name="assignment title" ref="inputRef" :readonly="readOnly" :value="editedTitle" :onmousedown="readOnly ? preventFocus : null " @change="handleEditTitle($event.target.value)"></textarea>
+        <textarea rows="1"  name="assignment title" ref="inputRef" :readonly="readOnly" :value="editedTitle" :onmousedown="readOnly ? preventFocus : null " @change="handleEditTitle($event.target.value)"></textarea>
 
         <span class="course-name">{{ course }}</span>
         <span class="due-date">Due: {{ due }}</span>
@@ -100,7 +100,7 @@ function saveEdit(id) {
         top:0;
         left:0;
         padding: .2rem .4rem;
-        background-color: #4a5c75;
+        background-color: #495057;
         color: white;
         border-bottom-right-radius: 5px;
         border-top-left-radius: 5px;
@@ -111,7 +111,7 @@ function saveEdit(id) {
         top:0;
         right:0;
         padding: .2rem .4rem;
-        background-color: #4a586c;
+        background-color: #495057;
         color: white;
         border-bottom-left-radius: 5px;
         border-top-right-radius: 5px;
@@ -135,7 +135,7 @@ function saveEdit(id) {
         bottom:0;
         left:0;
         padding: .2rem .4rem;
-        background-color: #244779;
+        background-color: #1864ab;
         border: none;
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
@@ -143,6 +143,6 @@ function saveEdit(id) {
     }
 
     .assignment button:hover{
-        background-color: #48566a;
+        background-color: hsl(220, 20%, 30%);
     }
 </style>

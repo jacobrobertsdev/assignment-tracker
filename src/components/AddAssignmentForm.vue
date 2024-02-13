@@ -99,7 +99,7 @@ form button {
     cursor: pointer;
     background-color: var(--background);
     color: white;
-    padding:.4rem .5rem;
+    padding:.4rem .6rem;
     border: 1px solid white;
     border-radius:5px
 }
@@ -117,22 +117,22 @@ label{
 input {
     width: 15rem;
     height: 2.1rem;
-    padding: .2rem;
+    padding: .4rem;
     border-radius: 5px;
-    border: 2px solid rgb(138, 138, 138);
+    border: 1px solid rgb(138, 138, 138);
 }
 
 .add-assignment {
     display: inline-flex;
     align-items: center;
     position: fixed;
-    top:-5px;
+    top:3%;
     right: 5%;
     z-index: 10;
     color: white;
-    padding:.5rem .6rem .4rem .6rem;
+    padding:.4rem;
     border: none;
-    background-color: hsl(220, 75%, 45%);
+    background-color: #1c7ed6;
     border-radius:5px
 }
 

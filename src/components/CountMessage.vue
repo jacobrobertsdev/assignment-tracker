@@ -13,6 +13,6 @@ const props = defineProps({
 <style scoped>
 h4 {
 font-size: .9rem;
-margin-top: 3rem;
+margin-top: 1.5rem;
 }
 </style>
