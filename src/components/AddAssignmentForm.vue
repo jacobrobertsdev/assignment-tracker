@@ -1,4 +1,5 @@
 <script setup>
+import Swal from 'sweetalert2';
 import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
 
@@ -27,6 +28,19 @@ function addAssignment() {
 
     emit('addNewAssignment', newAssignment)
     toggleForm()
+}
+
+function validateForm() {
+    if (!courseName.value || !assignmentName.value || !dueDate.value) {
+        Swal.fire({
+            title: "Form incomplete!",
+            text: "Fill out all fields to add assignment.",
+            icon: "warning",
+            confirmButtonColor: "#1c7ed6",
+        })
+    } else {
+        addAssignment()
+    }
 }
 
 </script>
@@ -58,7 +72,7 @@ function addAssignment() {
             
         <section class="controls">
 
-            <button @click="addAssignment" type="submit">Submit</button>
+            <button @click="validateForm" type="button">Submit</button>
             <button @click="toggleForm" type="button">Cancel</button>
         </section>
 
