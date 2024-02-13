@@ -2,7 +2,7 @@
 
 Application for tracking school assignments with courses, due dates, and assignment descriptions. Users can create, read, update, and delete assignments. Mobile-responsive and displays the current date and time.
 
-🔗 **Live site:** [here](https://jacobrobertsdev.github.io/assignment-tracker/)
+🔗 **Live site:** [link](https://assignment-tracker-iota.vercel.app/)
 
 <img src="public/Screen Shot 2024-02-13 at 3.14.23 PM.png" width="500px" alt="Screenshot">
  
