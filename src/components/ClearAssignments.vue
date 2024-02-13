@@ -1,5 +1,4 @@
 <script setup>
-import { defineEmits } from 'vue';
 import Swal from 'sweetalert2'
 
 const props = defineProps({

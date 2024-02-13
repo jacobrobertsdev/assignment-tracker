@@ -1,4 +1,5 @@
 <script setup>
+import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
 
 const emit = defineEmits(['addNewAssignment'])
@@ -19,7 +20,7 @@ function toggleForm() {
 
 function addAssignment() {
    const newAssignment = {
-       id: crypto.randomUUID().toString(),
+       id: uuidv4(),
        course: courseName.value,
        title: assignmentName.value,
        due: dueDate.value}
@@ -35,7 +36,7 @@ function addAssignment() {
 
     <section v-if="!formHidden" class="assignment-form">
 
-        <form  id="new-assignment" name="New Assignment Form" @submit.prevent="addAssignment">
+        <form  id="new-assignment" name="New Assignment Form" @submit.prevent>
 
         <section class="course-input">
 
@@ -57,7 +58,7 @@ function addAssignment() {
             
         <section class="controls">
 
-            <button>Submit</button>
+            <button @click="addAssignment" type="submit">Submit</button>
             <button @click="toggleForm" type="button">Cancel</button>
         </section>
 
