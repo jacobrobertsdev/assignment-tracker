@@ -8,10 +8,10 @@ Application for tracking school assignments with courses, due dates, and assignm
  
 ## Built Using
 
-- [Vue.js] (https://vuejs.org/)
-- [Vite] (https://vitejs.dev/)
-- [UUID] (https://www.npmjs.com/package/uuid)
-- [SweetAlert2] (https://sweetalert2.github.io)
+- [Vue.js](https://vuejs.org/)
+- [Vite](https://vitejs.dev/)
+- [UUID](https://www.npmjs.com/package/uuid)
+- [SweetAlert2](https://sweetalert2.github.io)
 - Web storage API
 - VSCode
 - Git
