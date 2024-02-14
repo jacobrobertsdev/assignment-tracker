@@ -1,23 +1,40 @@
-  <script setup>
-  import { ref, onMounted } from 'vue'
-  
+<script setup>
+  import { ref, onMounted, onBeforeUnmount } from 'vue'
+
   const formattedDateTime = ref('')
-  
-  onMounted(() => {
-    const now = new Date()
-  
-    const options = { 
-      hour: 'numeric', 
+  let intervalId // Declare intervalId outside of the setup to keep track of the interval
+
+  const setDateTime = () => {
+    const current = new Date()
+    const options = {
+      hour: 'numeric',
       minute: '2-digit',
-      month: 'numeric', 
-      day: 'numeric', 
-      year: 'numeric', 
+      month: 'numeric',
+      day: 'numeric',
+      year: 'numeric',
     }
 
-      formattedDateTime.value = now.toLocaleDateString(undefined, options).replace(',', ' - ')
-    
+    formattedDateTime.value = current.toLocaleDateString(undefined, options).replace(',', ' - ')
+  }
+
+  const scheduleUpdate = () => {
+    const current = new Date()
+    const seconds = 60 - current.getSeconds() // Calculate seconds left in the current minute
+
+    clearInterval(intervalId)// Clear previous interval
+    intervalId = setInterval(setDateTime, seconds * 1000) // Update time on calculated interval
+  }
+
+  onMounted(() => {
+    setDateTime() // Initial call to set the date time
+    scheduleUpdate() // Schedule the next update
   })
-  </script>
+
+  // When the component is unmounted, clear the interval
+  onBeforeUnmount(() => {
+    clearInterval(intervalId)
+  })
+</script>
 
   <template>
       <h3>{{ formattedDateTime }}</h3>
