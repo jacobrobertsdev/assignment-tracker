@@ -27,6 +27,7 @@ function addAssignment() {
 
     emit('addNewAssignment', newAssignment)
     toggleForm()
+    window.scrollTo({top: 0})
 }
 
 
@@ -130,5 +131,11 @@ input {
 
 button:hover {
   background-color: hsl(220, 20%, 30%);
+}
+
+@media (max-width: 400px) {
+    input {
+  font-size: 16px;
+}
 }
 </style>
