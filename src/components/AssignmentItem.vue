@@ -41,6 +41,11 @@ function saveEdit() {
     
 }
 
+function cancelEdit() {
+    editedTitle.value = props.title
+    toggleEdit()
+}
+
 </script>
 
 <template>
@@ -53,7 +58,11 @@ function saveEdit() {
 
         <button class="delete" @click="deleteAssignment">Delete</button>
         <button  v-if="readOnly" class="edit" @click="toggleEdit">Edit</button>
-        <button  v-else class="save" @click="saveEdit">Save</button>
+        <div v-else class="edit-buttons">
+            <button  class="save" @click="saveEdit">Save</button>
+            <button  class="cancel" @click="cancelEdit">Cancel</button>
+        </div>
+        
 
     </li>
 </template>
@@ -127,7 +136,7 @@ function saveEdit() {
         border-bottom-right-radius: 5px;
         color: red;
     }
-    .edit, .save {
+    .edit {
         font-size: .8rem;
         position: absolute;
         bottom:0;
@@ -137,8 +146,33 @@ function saveEdit() {
         border: none;
         border-top-right-radius: 5px;
         border-bottom-left-radius: 5px;
-       
     }
+
+    .edit-buttons{
+        position: absolute;
+        bottom:0;
+        left:0;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .edit-buttons button {
+        padding: .2rem .4rem;
+        font-size: .8rem;
+        background-color: #1864ab;
+        border: none;
+    }
+
+    .save {
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .cancel {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+
 
     button:hover {
     background-color: hsl(220, 20%, 30%);
