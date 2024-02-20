@@ -32,6 +32,7 @@ function formatDate(dateStr) {
         <p>No assignments!</p>
     </div>
     <ul v-else>
+        
     <AssignmentItem  v-for="assignment in props.assignments" :key="assignment.id" 
     :title="assignment.title" 
     :course="assignment.course"

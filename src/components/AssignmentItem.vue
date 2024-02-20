@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, Transition } from 'vue'
 
 const props = defineProps({
     course: String,
@@ -10,8 +10,8 @@ const props = defineProps({
 
 const emit = defineEmits(['deleteAssignment', 'editAssignment'])
 
+let inputRef = null
 const readOnly = ref(true)
-const inputRef = ref(null)
 const editedTitle = ref(props.title)
 
 
@@ -19,7 +19,7 @@ const toggleEdit = () => {
     readOnly.value = !readOnly.value
 
     if (!readOnly.value) {
-        inputRef.value.focus()}
+        inputRef.focus()}
 }
 
 const preventFocus = (event) => {
@@ -65,6 +65,7 @@ function cancelEdit() {
         
 
     </li>
+
 </template>
 
 <style scoped>
