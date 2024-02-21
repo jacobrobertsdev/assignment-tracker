@@ -1,5 +1,5 @@
 <script setup>
-import { ref, Transition } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
     course: String,
