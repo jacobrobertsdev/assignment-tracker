@@ -36,7 +36,7 @@ function addAssignment() {
 <template>
     <button v-if="formHidden" @click="toggleForm" class="add-assignment">+Add</button>
 
-    <section v-if="!formHidden" class="assignment-form">
+    <section v-else-if="!formHidden" class="assignment-form">
 
         <form  id="new-assignment" name="New Assignment Form" @submit.prevent="addAssignment">
 
