@@ -19,21 +19,24 @@
 
   const scheduleUpdate = () => {
     const current = new Date()
-    const seconds = 60 - current.getSeconds() // Calculate seconds left in the current minute
+    const seconds = 60 - current.getSeconds() // Calculate seconds remaining in the current minute
 
     clearInterval(intervalId)// Clear previous interval
     intervalId = setInterval(setDateTime, seconds * 1000) // Update time on calculated interval
   }
+
 
   onMounted(() => {
     setDateTime() // Initial call to set the date time
     scheduleUpdate() // Schedule the next update
   })
 
+
   // When the component is unmounted, clear the interval
   onBeforeUnmount(() => {
     clearInterval(intervalId)
   })
+  
 </script>
 
   <template>

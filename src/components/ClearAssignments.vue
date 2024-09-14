@@ -21,6 +21,7 @@ if (props.assignments.length){Swal.fire({
 
   if (result.isConfirmed) {
     emit('clearAll')
+
     Swal.fire({
       title: "Deleted!",
       text: "Your assignments have been deleted.",
@@ -30,7 +31,7 @@ if (props.assignments.length){Swal.fire({
   }
 })
 
-} else {
+  } else {
   Swal.fire({
     text: "No assignments to clear!",
     icon: "warning",
